@@ -1,6 +1,6 @@
 /**
- * Student Name:
- * Semester:
+ * Student Name: Aliya Salmanova
+ * Semester: Fall 2025
  * 
  * 
  * This file is to test the functions in cpractice.h. You are to write at least *TWO* (maybe more) tests for every function. 
@@ -54,6 +54,23 @@ int test_create_array_of_ints_fib() {
     return 1;
 }
 
+int test_reverse_array() {
+    printf("2. test_reverse_array()\n");
+
+    int arr[5] = {1, 2, 3, 4, 5};
+	reverse_array(arr, 5);
+    int expected[] = {5, 4, 3, 2, 1};
+    for (int i = 0; i < 5; i++) {
+        if (arr[i] != expected[i]) {
+            //free(arr);
+            return 0;
+        }
+    }
+    //free(arr); 
+    // everything matched
+    return 1;
+}
+
 
 
 
@@ -63,6 +80,7 @@ int (*unitTests[])() = {
         test_swap_one,
         test_create_array_of_ints_fib,
         // add more test function names here
+		test_reverse_array
 };
 
 int main(int argc, char const *argv[])

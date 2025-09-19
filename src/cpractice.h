@@ -1,6 +1,6 @@
 /**
- * Student Name:
- * Semester:
+ * Student Name: Aliya Salmanova
+ * Semester: Fall 2025
  * 
  * C Practice
  * This assignment is to help you practice using C. Is is setup to
@@ -46,7 +46,9 @@ typedef struct {
  * of the variables in the calling function. 
 **/
 void swap(int *a, int *b){
-
+    int temp = *a;
+    *a = *b;
+	*b = temp;
 }
 
 /**
@@ -88,7 +90,22 @@ void print_array(int *arr, int size)
  * here is a quick list of numbers: https://www.math.net/list-of-fibonacci-numbers
  **/
 int* create_array_of_ints_fib(int size){
-    return NULL;
+    int prev = 0;
+    int curr = 1;
+
+    int *array = (int *)malloc(size * sizeof(int));
+
+    for (int i = 0; i < size; i++){
+
+        array[i] = curr;
+
+		int newCurr = prev + curr;
+		prev = curr;
+		curr = newCurr;
+	
+    }
+
+    return array;
 }
 
 /**
@@ -101,7 +118,14 @@ int* create_array_of_ints_fib(int size){
  * Consider using swap. 
 */
 void reverse_array(int *arr, int size){
-    
+    for (int i = 0; i < size/2; i++){
+        swap(&arr[i], &arr[size-1-i]);
+    }
+
+	for (int i = 0; i < size; i++){
+        printf("%d\n", arr[i]);
+    }
+ 
 }
 
 
@@ -115,6 +139,9 @@ void reverse_array(int *arr, int size){
  * 
 */
 int* double_array_size(int *arr, int size){
+
+    int* array;
+    
     return NULL;
 }
 

@@ -2,7 +2,8 @@
 
 Completely answer the report questions below. Make sure to double check the final version to make sure it is easily readable on your github repository. 
 
-
+Name: Aliya Salmanova
+Semester: Fall 2025
 
 
 1. What is the difference between a standard numeric type (int, float, double) and a pointer?
@@ -113,6 +114,7 @@ Add any references you use here. Use ACM style formatting, adding to the numbers
 1. cppreference.com Contributors. 2025. Standard library header <stdlib.h>. cppreference.com. Retrieved May 1, 2025 from https://en.cppreference.com/w/c/header/stdlib
 
 2. ...
+   https://www.geeksforgeeks.org/c/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/
 
 ## Resource/Help: Linking to images?
 To link an image, you use the following code
