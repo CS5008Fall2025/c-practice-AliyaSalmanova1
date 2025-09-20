@@ -121,13 +121,7 @@ void reverse_array(int *arr, int size){
     for (int i = 0; i < size/2; i++){
         swap(&arr[i], &arr[size-1-i]);
     }
-
-	for (int i = 0; i < size; i++){
-        printf("%d\n", arr[i]);
-    }
- 
 }
-
 
  
 /**
@@ -140,9 +134,12 @@ void reverse_array(int *arr, int size){
 */
 int* double_array_size(int *arr, int size){
 
-    int* array;
+    int* array = (int *)calloc(size * 2, sizeof(int));
+	for (int i = 0; i < size; i++){
+		array[i] = arr[i];
+	}
     
-    return NULL;
+    return array;
 }
 
 /**
@@ -170,7 +167,26 @@ int* double_array_size(int *arr, int size){
  * to get an OB1 error!
  */
 int* copy_array_start_end_loop(int *arr, int size, int start, int end, int *new_size) {
-    return NULL;
+	//[1,2,3,4,5] 5, 3, 1, 0
+
+	if (start < end) {
+		*new_size = end - start + 1; //3
+	} else {
+		*new_size = size - start + end + 1;
+	}
+
+
+	int *newArray = (int *)malloc(*new_size * sizeof(int));
+	int counter = start; //1
+	for (int i = 0; i < *new_size; i++){
+		newArray[i] = arr[counter];
+		counter++;
+		if (counter >= size){
+			counter = 0;
+		}	
+	}
+	
+    return newArray;
 }
 
 /* 
@@ -181,8 +197,12 @@ Practice with struts
  * Creates a point with the given x and y values. Allocates it on the heap. (malloc)
  * and returns the new point
 */
+
 Point* create_point(int x, int y){
-    return NULL;
+	Point *myPoint = (Point *)malloc(sizeof(Point));
+	myPoint->x = x;
+	myPoint->y = y;
+    return myPoint;
 }
 
 /**
@@ -193,7 +213,14 @@ Point* create_point(int x, int y){
  * the point values. it is just a polygon of eventual size, and an array of empty points. 
 */
 Polygon* create_polygon(int size){
-    return NULL;
+	Polygon *polygon = (Polygon *)malloc(sizeof(Polygon));
+	Point **points = (Point **)malloc(sizeof(Point) * size);
+	polygon->size = size;
+	for (int i = 0; i < size; i++){
+		points[i] = create_point(0, 0);
+	}
+	polygon->points = points;
+    return polygon;
 }
 
 
@@ -202,7 +229,10 @@ Polygon* create_polygon(int size){
  * all the points, to free them, free the array, and then free the polygon itself.
 */
 void free_polygon(Polygon *p){
-    
+    for (int i = 0; i < p->size; i++){
+		free(p->points[i]);
+	}
+	free(p);
 }
 
 /**
@@ -215,7 +245,13 @@ void free_polygon(Polygon *p){
  * 0, height
 */
 Polygon* create_rectangle(int width, int height){
-    return NULL;
+    Polygon *polygon = create_polygon(4);
+	int points[4][2] = {{0, 0}, {width, 0}, {width, height}, {0, height}};
+	for (int i = 0; i < 4; i++){
+		polygon->points[i]->x = points[i][0];
+		polygon->points[i]->y = points[i][1];
+	}
+    return polygon;
 }
 
 
@@ -228,7 +264,7 @@ Polygon* create_rectangle(int width, int height){
  * width, height
 */
 Polygon* create_triangle(int width, int height){
-    return NULL;
+	return NULL;
 }
 
 /**
