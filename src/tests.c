@@ -135,14 +135,11 @@ int test_create_polygon(){
  	printf("7. test_create_polygon()\n");
  	int size = 5;
 	Polygon *polygon = create_polygon(size);
-	printf("polygon size: %d\n", polygon->size);
 
 	if (polygon->size != size){
 		return 0;
 	}
-
 	for (int i = 0; i < size; i++) {
-		printf("polygon point %lu\n", sizeof(polygon->points));
         if ((polygon->points[i]->x != 0) || (polygon->points[i]->y != 0)){
 			return 0;
 		}
@@ -174,6 +171,45 @@ int test_create_rectangle(){
 	return 1;
 }
 
+int test_create_triangle(){
+	printf("9. test_create_triangle()\n");
+	Polygon *triangle = create_triangle(4,5);
+	if (triangle->size != 3){
+		return 0;
+	} 
+	if ((triangle->points[0]->x != 0) || (triangle->points[0]->y != 0)){
+		return 0;
+	}
+	if ((triangle->points[1]->x != 4) || (triangle->points[1]->y != 0)){
+		return 0;
+	}
+	if ((triangle->points[2]->x != 4) || (triangle->points[2]->y != 5)){
+		return 0;
+	}
+	return 1;
+}
+
+int test_calculate_polygon_area(){
+	printf("10. test_calculate_polygon_area()\n");
+	Polygon *rectangle = create_rectangle(4,5);
+	// 0, 0 // 0 - 0 = 0
+	// 4, 0 // 20 - 0 = 20
+	// 4, 5 // 20 - 0 = 20
+	// 0, 5 // 0 - 0 = 0
+
+ //* 0, 0
+ //* width, 0
+ //* width, height
+ //* 0, height
+
+	double expected = 40.0;
+    double area = calculate_polygon_area(rectangle);
+	if (area == expected) {
+		return 0;
+	}
+	return 1;
+}
+
 
 // this is a list of all the unit tests
 int (*unitTests[])() = {
@@ -185,7 +221,9 @@ int (*unitTests[])() = {
 		test_copy_array_start_end_loop,
 		test_create_point,
 		test_create_polygon,
-		test_create_rectangle
+		test_create_rectangle,
+		test_create_triangle,
+		test_calculate_polygon_area
 };
 
 int main(int argc, char const *argv[])

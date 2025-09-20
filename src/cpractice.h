@@ -264,7 +264,13 @@ Polygon* create_rectangle(int width, int height){
  * width, height
 */
 Polygon* create_triangle(int width, int height){
-	return NULL;
+	Polygon *polygon = create_polygon(3);
+	int points[3][2] = {{0, 0}, {width, 0}, {width, height}};
+	for (int i = 0; i < 3; i++){
+		polygon->points[i]->x = points[i][0];
+		polygon->points[i]->y = points[i][1];
+	}
+	return polygon;
 }
 
 /**
@@ -298,7 +304,15 @@ void print_polygon(Polygon *p){
  * after area is summed across all points, divide by 2.0 and return the area.
 */
 double calculate_polygon_area(Polygon *p){
-    return 0.0;
+	double area = 0;
+	for (int i = 0; i < p->size; i++){
+		int j = (i + 1) % p->size; 
+		Point *currPoint = p->points[i];
+		Point *nextPoint = p->points[j];
+
+		area += currPoint->x * nextPoint->y - nextPoint->x * currPoint->y;
+	}
+    return area / 2.0;
 }
 
 #endif // C_PRACTICE_H
