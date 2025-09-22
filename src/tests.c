@@ -319,8 +319,10 @@ int test_create_point1(){
 	Point *myStruct = create_point(4, 5);
 	//check x and y
 	if ((myStruct->x != 4) || (myStruct->y != 5)){
+		free(myStruct);
 		return 0;
 	}
+	free(myStruct);
 	return 1;
 }
 
@@ -332,8 +334,10 @@ int test_create_point2(){
 	Point *myStruct = create_point(-4, -5);
 	//check x and y
 	if ((myStruct->x != -4) || (myStruct->y != -5)){
+		free(myStruct);
 		return 0;
 	}
+	free(myStruct);
 	return 1;
 }
 
@@ -345,8 +349,10 @@ int test_create_point3(){
 	Point *myStruct = create_point(0, 0);
 	//check x and y
 	if ((myStruct->x != 0) || (myStruct->y != 0)){
+		free(myStruct);
 		return 0;
 	}
+	free(myStruct);
 	return 1;
 }
 
@@ -365,9 +371,11 @@ int test_create_polygon1(){
 	//loop through points and make sure each x and y is 0
 	for (int i = 0; i < size; i++) {
         if ((polygon->points[i]->x != 0) || (polygon->points[i]->y != 0)){
+        	free_polygon(polygon);
 			return 0;
 		}
     }
+	free_polygon(polygon);
 	return 1;
 }
 
@@ -379,6 +387,7 @@ int test_create_polygon2(){
 
 	//check size
 	if (create_polygon(2) != NULL){
+		
 		return 0;
 	}
 
@@ -395,22 +404,28 @@ int test_create_rectangle1(){
 
 	//check size
 	if (rectangle->size != 4){
+		free_polygon(rectangle);
 		return 0;
 	} 
 
 	//check all points
 	if ((rectangle->points[0]->x != 0) || (rectangle->points[0]->y != 0)){
+		free_polygon(rectangle);
 		return 0;
 	}
 	if ((rectangle->points[1]->x != 4) || (rectangle->points[1]->y != 0)){
+		free_polygon(rectangle);
 		return 0;
 	}
 	if ((rectangle->points[2]->x != 4) || (rectangle->points[2]->y != 5)){
+		free_polygon(rectangle);
 		return 0;
 	}
 	if ((rectangle->points[3]->x != 0) || (rectangle->points[3]->y != 5)){
+		free_polygon(rectangle);
 		return 0;
 	}
+	free_polygon(rectangle);
 	return 1;
 }
 
@@ -422,21 +437,27 @@ int test_create_rectangle2(){
 	printf("8b. test_create_rectangle2()\n");
 	Polygon *rectangle = create_rectangle(3,3);
 	if (rectangle->size != 4){
+		free_polygon(rectangle);
 		return 0;
 	} 
 	//check all points
 	if ((rectangle->points[0]->x != 0) || (rectangle->points[0]->y != 0)){
+		free_polygon(rectangle);
 		return 0;
 	}
 	if ((rectangle->points[1]->x != 3) || (rectangle->points[1]->y != 0)){
+		free_polygon(rectangle);
 		return 0;
 	}
 	if ((rectangle->points[2]->x != 3) || (rectangle->points[2]->y != 3)){
+		free_polygon(rectangle);
 		return 0;
 	}
 	if ((rectangle->points[3]->x != 0) || (rectangle->points[3]->y != 3)){
+		free_polygon(rectangle);
 		return 0;
 	}
+	free_polygon(rectangle);
 	return 1;
 }
 
@@ -458,18 +479,23 @@ int test_create_triangle1(){
 	printf("9a. test_create_triangle1()\n");
 	Polygon *triangle = create_triangle(4,5);
 	if (triangle->size != 3){
+		free_polygon(triangle);
 		return 0;
 	} 
 	//check all points
 	if ((triangle->points[0]->x != 0) || (triangle->points[0]->y != 0)){
+		free_polygon(triangle);
 		return 0;
 	}
 	if ((triangle->points[1]->x != 4) || (triangle->points[1]->y != 0)){
+		free_polygon(triangle);
 		return 0;
 	}
 	if ((triangle->points[2]->x != 4) || (triangle->points[2]->y != 5)){
+		free_polygon(triangle);
 		return 0;
 	}
+	free_polygon(triangle);
 	return 1;
 }
 
@@ -484,14 +510,18 @@ int test_create_triangle2(){
 	} 
 	//check all points
 	if ((triangle->points[0]->x != 0) || (triangle->points[0]->y != 0)){
+		free_polygon(triangle);
 		return 0;
 	}
 	if ((triangle->points[1]->x != 3) || (triangle->points[1]->y != 0)){
+		free_polygon(triangle);
 		return 0;
 	}
 	if ((triangle->points[2]->x != 3) || (triangle->points[2]->y != 3)){
+		free_polygon(triangle);
 		return 0;
 	}
+	free_polygon(triangle);
 	return 1;
 }
 
@@ -517,8 +547,10 @@ int test_calculate_polygon_area1(){
 	double expected = 20.0; // has to be double to compare with returned value
 	double area = calculate_polygon_area(rectangle);
 	if (area != expected) {
+		free_polygon(rectangle);
 		return 0;
 	}
+	free_polygon(rectangle);
 	return 1;
 }
 
@@ -532,8 +564,10 @@ int test_calculate_polygon_area2(){
 	double expected = 10.0; //20 divided by 2
 	double area = calculate_polygon_area(triangle);
 	if (area != expected) {
+		free_polygon(triangle);
 		return 0;
 	}
+	free_polygon(triangle);
 	return 1;
 }
 
@@ -549,8 +583,10 @@ int test_calculate_polygon_area3(){
 	double expected = 9.0; 
 	double area = calculate_polygon_area(square);
 	if (area != expected) {
+		free_polygon(square);
 		return 0;
 	}
+	free_polygon(square);
 	return 1;
 }
 

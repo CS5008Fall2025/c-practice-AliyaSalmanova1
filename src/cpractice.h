@@ -109,7 +109,6 @@ int* create_array_of_ints_fib(int size){
 		curr = newCurr;
 	
     }
-	printf("%d\n", array[0]);
 
     return array;
 }
@@ -231,7 +230,7 @@ Polygon* create_polygon(int size){
 	polygon->size = size;
 
 	//make array of points
-	Point **points = (Point **)malloc(sizeof(Point) * size);
+	Point **points = (Point **)malloc(sizeof(Point *) * size);
 	for (int i = 0; i < size; i++){
 		points[i] = create_point(0, 0);
 	}
@@ -248,6 +247,7 @@ void free_polygon(Polygon *p){
     for (int i = 0; i < p->size; i++){
 		free(p->points[i]);
 	}
+	free(p->points);
 	free(p);
 }
 
