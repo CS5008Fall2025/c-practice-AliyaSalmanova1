@@ -176,9 +176,9 @@ To link an image, you use the following code
 
 
 for example
-```markdown
+
 ![my memory drawing](instructions/rectangle_points.png)
-```
+
 
 
 Here is a sample using: 
