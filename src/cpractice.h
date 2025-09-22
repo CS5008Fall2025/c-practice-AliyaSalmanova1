@@ -172,8 +172,9 @@ int* double_array_size(int *arr, int size){
  */
 int* copy_array_start_end_loop(int *arr, int size, int start, int end, int *new_size) {
 	//[1,2,3,4,5] 5, 3, 1, 0
-
-	if (start < end) {
+	if (start == end){
+		*new_size = 1;
+	} else if (start < end) {
 		*new_size = end - start + 1; //3
 	} else {
 		*new_size = size - start + end + 1;
