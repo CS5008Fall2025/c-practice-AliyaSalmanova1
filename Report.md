@@ -118,14 +118,7 @@ Usually we use malloc unless we need to make sure that the values are initially 
         The string can have format specifiers indicate in the additional arguments. 
       * putchar(character) - writes a single character to the console. 
 
-https://www.w3schools.com/c/c_ref_math.php
 
-https://www.w3schools.com/c/c_ref_time.php
-https://www.geeksforgeeks.org/c/time-function-in-c/
-https://www.w3schools.com/cpp/ref_ctime_localtime.asp
-
-https://www.w3schools.com/c/c_ref_stdio.php
-https://www.tutorialspoint.com/c_standard_library/c_function_fprintf.htm
 
 
 8. Looking at the struct Point and Polygon, we have a mix of values on the heap, and we make ample use of pointers. Take a moment to draw out how you think that looks after `create_triangle(2,3)` is called (see an example below). The important part of the drawing it to see that not everything is stored together in memory, but in different locations! Store the image file in your github repo and link it here. You can use any program to draw it such as [drawIO](https://app.diagrams.net/), or even draw it by hand and take a picture of it. 
@@ -137,7 +130,7 @@ https://www.tutorialspoint.com/c_standard_library/c_function_fprintf.htm
 For both these questions, are you are free to use what you did as the last section on the team activities/answered as a group, or you can use a different question.
 
 1. Select one technical interview question (this module or previous) from the [technical interview list](https://github.com/CS5008-khoury/Resources/blob/main/TechInterviewQuestions.md) below and answer it in a few sentences. You can use any resource you like to answer the question.
-   https://www.freecodecamp.org/news/compiled-versus-interpreted-languages/
+   
 
     What is the difference between a compiled and an interpreted language? Which one is better? Give an example of each.
     A compiled language is turned into machine code before running. You need to manually compiled it and when you make a change you need to re-compile it.
@@ -148,7 +141,7 @@ For both these questions, are you are free to use what you did as the last secti
    
    
 2. Select one coding question (this module or previous) from the [coding practice repository](https://github.com/CS5008-khoury/Resources/blob/main/LeetCodePractice.md) and include a c file with that code with your submission. Make sure to add comments on what you learned, and if you compared your solution with others. 
-
+I picked 977. Squares of a Sorted Array. My solution is in sortedSquares.c
 
 ## Deeper Thinking
 In Java and Python, do you think new objects are stored on the stack or the heap? Feel free to work through your thoughts as to why it would be better to store them on the stack or heap. You should consider pass by reference, and how that is similar to pointer in your answer. Feel free to use resources, but make sure to cite them, and include the citation below using ACM format. You will note LLMs are not valid references, but they can give you directions to valid references. Make sure to use your own words. 
@@ -157,9 +150,8 @@ Answer here using a paragraph (not just bullet points).
 I think objects in Java and Python would be stored in the heap because the stack can overflow, 
 and objects can be large as they can have both attributes and methods. Also, you might lose the values of the fields
 if you create the objects in a function and then return
-https://www.geeksforgeeks.org/java/how-are-java-objects-stored-in-memory/
+
 According to my references, in Java, objects are stored in the heap while references to the objects are stored in the stack.
-https://www.geeksforgeeks.org/python/memory-management-in-python/
 Same thing with Python. Also, I think it's important to note that eveything is an object in these languages.
 
 
@@ -167,9 +159,19 @@ Same thing with Python. Also, I think it's important to note that eveything is a
 Add any references you use here. Use ACM style formatting, adding to the numbers as you add the reference. 
 
 1. cppreference.com Contributors. 2025. Standard library header <stdlib.h>. cppreference.com. Retrieved May 1, 2025 from https://en.cppreference.com/w/c/header/stdlib
+2. GeeksforGeeks. (2025, February 26). Stack vs heap memory allocation. https://www.geeksforgeeks.org/dsa/stack-vs-heap-memory-allocation/
+3. RishabhPrabhu, & Follow. (2025, September 13). Dynamic memory allocation in C. GeeksforGeeks. https://www.geeksforgeeks.org/c/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/
+4. W3schools.com. Reference. (n.d.-a). https://www.w3schools.com/c/c_ref_math.php
+5. W3schools.com. Date and Time Reference. (n.d.). https://www.w3schools.com/c/c_ref_time.php
+6. B, bansal_rtk_, & Follow. (2025, January 10). Time() function in C. GeeksforGeeks. https://www.geeksforgeeks.org/c/time-function-in-c/
+7. B, bansal_rtk_, & Follow. (2025, January 10). Time() function in C. GeeksforGeeks. https://www.geeksforgeeks.org/c/time-function-in-c/
+8. W3schools.com. W3Schools Online Web Tutorials. (n.d.-a). https://www.w3schools.com/cpp/ref_ctime_localtime.asp
+9. W3schools.com. Standard Input and Output Reference. (n.d.). https://www.w3schools.com/c/c_ref_stdio.php
+10. C library - fprintf() function. Tutorialspoint. (n.d.). https://www.tutorialspoint.com/c_standard_library/c_function_fprintf.htm
+11. freeCodeCamp. (2020, January 10). Interpreted vs compiled programming languages: What’s the difference? freeCodeCamp.org. https://www.freecodecamp.org/news/compiled-versus-interpreted-languages/
+12. GeeksforGeeks. (2025d, July 23). How are Java objects stored in memory? https://www.geeksforgeeks.org/java/how-are-java-objects-stored-in-memory/
+13. GeeksforGeeks. (2025e, August 18). Memory management in python. https://www.geeksforgeeks.org/python/memory-management-in-python/
 
-2. ... https://www.geeksforgeeks.org/dsa/stack-vs-heap-memory-allocation/
-   https://www.geeksforgeeks.org/c/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/
 
 ## Resource/Help: Linking to images?
 To link an image, you use the following code
