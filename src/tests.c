@@ -9,7 +9,7 @@
 
 #include <stdio.h>  // basic input and output
 #include <stdlib.h> // standard library
-
+#include <time.h>
 #include "cpractice.h" // header file for cpractice.c
 
 
@@ -62,12 +62,12 @@ int test_reverse_array() {
     int expected[] = {5, 4, 3, 2, 1};
     for (int i = 0; i < 5; i++) {
         if (arr[i] != expected[i]) {
-            //free(arr);
+            free(arr);
             return 0;
         } 
     }
 	
-    //free(arr); 
+    free(arr); 
     // everything matched
     return 1;
 }
@@ -201,6 +201,11 @@ int test_calculate_polygon_area(){
  //* width, 0
  //* width, height
  //* 0, height
+	time_t currTime;
+	time(&currTime);
+	char* timeString = ctime(&currTime);
+
+	printf("%s\n", timeString);
 
 	double expected = 40.0;
     double area = calculate_polygon_area(rectangle);
