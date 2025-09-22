@@ -129,7 +129,9 @@ https://www.tutorialspoint.com/c_standard_library/c_function_fprintf.htm
 
 
 8. Looking at the struct Point and Polygon, we have a mix of values on the heap, and we make ample use of pointers. Take a moment to draw out how you think that looks after `create_triangle(2,3)` is called (see an example below). The important part of the drawing it to see that not everything is stored together in memory, but in different locations! Store the image file in your github repo and link it here. You can use any program to draw it such as [drawIO](https://app.diagrams.net/), or even draw it by hand and take a picture of it. 
-
+```markdown
+![create_triangle(2,3)](stackHeap.png)
+```
 
 ## Technical Interview Practice Questions
 For both these questions, are you are free to use what you did as the last section on the team activities/answered as a group, or you can use a different question.
@@ -172,9 +174,7 @@ Add any references you use here. Use ACM style formatting, adding to the numbers
 ## Resource/Help: Linking to images?
 To link an image, you use the following code
 
-```markdown
-![alt text](path / link to image)
-```
+
 for example
 ```markdown
 ![my memory drawing](instructions/rectangle_points.png)
