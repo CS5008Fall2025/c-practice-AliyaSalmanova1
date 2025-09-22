@@ -90,6 +90,10 @@ void print_array(int *arr, int size)
  * here is a quick list of numbers: https://www.math.net/list-of-fibonacci-numbers
  **/
 int* create_array_of_ints_fib(int size){
+
+	if (size <= 0){
+		return NULL;
+	}
     int prev = 0;
     int curr = 1;
 
