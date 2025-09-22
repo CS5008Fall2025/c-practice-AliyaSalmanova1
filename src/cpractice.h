@@ -90,7 +90,7 @@ void print_array(int *arr, int size)
  * here is a quick list of numbers: https://www.math.net/list-of-fibonacci-numbers
  **/
 int* create_array_of_ints_fib(int size){
-
+	//edge case
 	if (size <= 0){
 		return NULL;
 	}
@@ -100,14 +100,16 @@ int* create_array_of_ints_fib(int size){
     int *array = (int *)malloc(size * sizeof(int));
 
     for (int i = 0; i < size; i++){
-
+		
         array[i] = curr;
 
+		//make each prev into curr and add prev(before it changed) to curr
 		int newCurr = prev + curr;
 		prev = curr;
 		curr = newCurr;
 	
     }
+	printf("%d\n", array[0]);
 
     return array;
 }
@@ -172,6 +174,8 @@ int* double_array_size(int *arr, int size){
  */
 int* copy_array_start_end_loop(int *arr, int size, int start, int end, int *new_size) {
 	//[1,2,3,4,5] 5, 3, 1, 0
+
+	//calculate size
 	if (start == end){
 		*new_size = 1;
 	} else if (start < end) {
@@ -183,9 +187,11 @@ int* copy_array_start_end_loop(int *arr, int size, int start, int end, int *new_
 
 	int *newArray = (int *)malloc(*new_size * sizeof(int));
 	int counter = start; //1
+	//i is for newArray, but counter goes through indices of current array 
 	for (int i = 0; i < *new_size; i++){
 		newArray[i] = arr[counter];
 		counter++;
+		//if counter is bigger than size, make sure it is reset
 		if (counter >= size){
 			counter = 0;
 		}	
@@ -218,9 +224,14 @@ Point* create_point(int x, int y){
  * the point values. it is just a polygon of eventual size, and an array of empty points. 
 */
 Polygon* create_polygon(int size){
+	if (size < 3) return NULL;
+	
 	Polygon *polygon = (Polygon *)malloc(sizeof(Polygon));
-	Point **points = (Point **)malloc(sizeof(Point) * size);
+	
 	polygon->size = size;
+
+	//make array of points
+	Point **points = (Point **)malloc(sizeof(Point) * size);
 	for (int i = 0; i < size; i++){
 		points[i] = create_point(0, 0);
 	}
@@ -250,8 +261,11 @@ void free_polygon(Polygon *p){
  * 0, height
 */
 Polygon* create_rectangle(int width, int height){
+	if (width <= 0 || height <= 0) return NULL;
     Polygon *polygon = create_polygon(4);
+	//values for each point
 	int points[4][2] = {{0, 0}, {width, 0}, {width, height}, {0, height}};
+	//fill points array in polygon struct
 	for (int i = 0; i < 4; i++){
 		polygon->points[i]->x = points[i][0];
 		polygon->points[i]->y = points[i][1];
@@ -269,8 +283,11 @@ Polygon* create_rectangle(int width, int height){
  * width, height
 */
 Polygon* create_triangle(int width, int height){
+	if (width <= 0 || height <= 0) return NULL;
 	Polygon *polygon = create_polygon(3);
+	//values for each point
 	int points[3][2] = {{0, 0}, {width, 0}, {width, height}};
+	//fill points array in polygon struct
 	for (int i = 0; i < 3; i++){
 		polygon->points[i]->x = points[i][0];
 		polygon->points[i]->y = points[i][1];
@@ -310,7 +327,9 @@ void print_polygon(Polygon *p){
 */
 double calculate_polygon_area(Polygon *p){
 	double area = 0;
+	//loop through points
 	for (int i = 0; i < p->size; i++){
+
 		int j = (i + 1) % p->size; 
 		Point *currPoint = p->points[i];
 		Point *nextPoint = p->points[j];
